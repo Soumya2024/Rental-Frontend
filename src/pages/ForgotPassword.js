@@ -1,28 +1,6 @@
-// import { useState } from 'react';
-// import { forgotPassword } from '../api/auth';
-// import Input from '../components/Input';
-
-// export default function ForgotPassword() {
-//   const [email, setEmail] = useState('');
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     await forgotPassword({ email });
-//     alert('OTP sent to your email.');
-//   };
-
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       <Input label="Email" name="email" type="email" onChange={(e) => setEmail(e.target.value)} />
-//       <button className="bg-yellow-600 text-white px-4 py-2 rounded" type="submit">Send OTP</button>
-//     </form>
-//   );
-// }
-
-
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { forgotPassword } from '../api/auth';
 
 function ForgetPassword() {
   const [email, setEmail] = useState("");

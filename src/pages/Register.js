@@ -1,36 +1,3 @@
-// import { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import { register } from '../api/auth';
-// import Input from '../components/Input';
-
-// export default function Register() {
-//   const [form, setForm] = useState({ email: '', phone: '', password: '' });
-
-//   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     await register(form);
-//     alert('Registered successfully');
-//   };
-
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       <Input label="Email" name="email" type="email" onChange={handleChange} />
-//       <Input label="Phone" name="phone" onChange={handleChange} />
-//       <Input label="Password" name="password" type="password" onChange={handleChange} />
-//       <button className="bg-blue-600 text-white px-4 py-2 rounded" type="submit">Register</button>
-//     </form>
-//   );
-// }
-
-
-
-
-
-
-
-
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { register } from '../api/auth';
