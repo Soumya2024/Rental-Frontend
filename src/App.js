@@ -4,6 +4,11 @@ import Login from './pages/Login';
 import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
 import Profile from './pages/Profile';
+import RentalForm from "./pages/Rental";
+import RentalRead from "./pages/RentalRead";
+import RentalUpdate from "./pages/RentalUpdate";
+import RentalDelete from "./pages/RentalDelete";
+
 
 function App() {
   return (
@@ -16,6 +21,10 @@ function App() {
           <Route path="/forgot-password" element={<ForgotPassword />} /> 
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/rentals" element={<RentalForm />} />
+          <Route path="/rentals/:id" element={<RentalRead />} />
+          <Route path="/rentals/:id/update" element={<RentalUpdate />} />
+          <Route path="/rentals/:id/delete" element={<RentalDelete />} />
         </Routes>
       </div>
     </Router>

@@ -1,34 +1,38 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { profile } from "../api/auth";
+import { profile as fetchProfileAPI } from "../api/auth";
 import './Profile.css';
 
 export default function Profile() {
-  const [profile, setProfile] = useState(null);
+  const [userProfile, setUserProfile] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isFallback, setIsFallback] = useState(false); // new state for fallback
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProfile = async () => {
       try {
         const token = localStorage.getItem('token');
+        console.log("Token being sent:", token);
         if (!token) {
           alert('No token found. Please login first.');
           navigate('/login');
           return;
         }
 
-        const res = await profile(token);
+        const res = await fetchProfileAPI(token);
 
         if (res?.data) {
-          setProfile(res.data);
+          setUserProfile(res.data);
+          setIsFallback(false);
         } else {
-          // fallback if no backend data
-          setProfile(null);
+          setUserProfile(null);
+          setIsFallback(true);
         }
       } catch (error) {
-        console.error(error);
-        setProfile(null);
+        console.error("Error fetching profile:", error);
+        setUserProfile(null);
+        setIsFallback(true);
       } finally {
         setLoading(false);
       }
@@ -51,12 +55,14 @@ export default function Profile() {
     browser_fingerprint: "AB12-CD34-EF56"
   };
 
-  const user = profile || staticProfile;
+  const user = userProfile || staticProfile;
 
   return (
     <div className="profile-container">
       <div className="profile-card">
-        <h1 className="profile-title">Welcome, {user.name || "Guest"}</h1>
+        <h1 className="profile-title">
+          Welcome, {user.name || "Guest"} {isFallback && "(Fallback Data)"}
+        </h1>
         <div className="profile-details">
           <p><span>Email:</span> {user.email}</p>
           <p><span>Phone:</span> {user.phone}</p>

@@ -1,0 +1,42 @@
+.read-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background: linear-gradient(145deg, #f4f4f8, #d9d9e3);
+    border-radius: 25px;
+    box-shadow: 8px 8px 15px #c1c1c1, -8px -8px 15px #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .read-container h2 {
+    text-align: center;
+    color: #333;
+    text-shadow: 1px 1px 2px #aaa;
+    margin-bottom: 25px;
+  }
+  
+  .read-card {
+    padding: 20px;
+    background: #e0e0e5;
+    border-radius: 20px;
+    box-shadow: inset 4px 4px 8px #c8c8c8, inset -4px -4px 8px #ffffff;
+  }
+  
+  .read-card p {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #444;
+  }
+  
+  .read-card a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #0077ff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .read-card a:hover {
+    text-decoration: underline;
+  }
+  

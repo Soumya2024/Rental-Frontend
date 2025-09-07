@@ -1,0 +1,98 @@
+/* Full-page container */
+.delete-page {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1f1f2e, #2c2c3e);
+  }
+  
+  /* Animated spheres for live 3D effect */
+  .background .sphere {
+    position: absolute;
+    width: calc(50px + var(--i) * 15px);
+    height: calc(50px + var(--i) * 15px);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    animation: float 12s linear infinite;
+    top: calc(var(--i) * 10%);
+    left: calc(var(--i) * 10%);
+    filter: blur(calc(var(--i) * 2px));
+    z-index: 1;
+  }
+  
+  /* More dynamic float animation */
+  @keyframes float {
+    0% { transform: translate3d(0,0,0) rotateX(0deg) rotateY(0deg); }
+    25% { transform: translate3d(50px,-30px,20px) rotateX(45deg) rotateY(60deg); }
+    50% { transform: translate3d(-40px,20px,-30px) rotateX(90deg) rotateY(120deg); }
+    75% { transform: translate3d(30px,-40px,10px) rotateX(135deg) rotateY(180deg); }
+    100% { transform: translate3d(0,0,0) rotateX(180deg) rotateY(360deg); }
+  }
+  
+  /* Card container */
+  .delete-card-container {
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Card styling */
+  .delete-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 40px 30px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .delete-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+  }
+  
+  .delete-card h2 {
+    font-size: 28px;
+    color: #e63946;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+  }
+  
+  .delete-card p {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
+  
+  .delete-btn {
+    background: linear-gradient(135deg, #e63946, #d62828);
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(230, 57, 70, 0.4);
+    transition: all 0.25s ease-in-out;
+  }
+  
+  .delete-btn:hover {
+    transform: translateY(-4px) scale(1.06);
+    box-shadow: 0 12px 25px rgba(230, 57, 70, 0.5);
+  }
+  
+  .delete-card span {
+    display: block;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #999;
+  }
+  
